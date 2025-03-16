@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<script src = "https://cdn.jsdelivr.net/npm/brython@3/brython.min.js"></script>
+<script src = "https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+<html>
+    <head>
+        <br><br>
+        <title>Naughty Calculator</title>
+    </head>
+
+    <body onload="brython(0)" style = "font-family: Georgia, 'Times New Roman', Times, serif;">
+        <h1 style = "text-align: center;">Naughty Calculator</h1>
+        <form>
+            <label>Input your first number here:</label>&nbsp;
+            <input type = "number" id = "num1" name = "num1">
+            <br><br>
+            <label>Choose your operation:</label>&nbsp;
+            <select id = "operation" name = "operation">
+                <option value = "addition">+</option>
+                <option value = "subtraction">-</option>
+                <option value = "multiplication">×</option>
+                <option value = "division">÷</option>
+            </select>
+            <br><br>
+            <label>Input your second number here:</label>&nbsp;
+            <input type = "number" id = "num2" name = "num2">
+            <br><br><br><br>
+            <button type = "button" id = "equal" name = "equal">=</button>
+            <p style="" id="result"></p>
+        </form>
+        <script type="text/python">
+            from browser import document
+            import random
+            def calc(ev):
+                num1 = document["num1"].value
+                num2 = document["num2"].value
+                document["result"].innerHTML = random.randint(-100,100)
+            document["equal"].bind("click", calc)    
+        </script>
+    </body>
+</html>
